@@ -1,5 +1,5 @@
 <div>
-    <form action="">
+    <form wire:submit.prevent="store">
         <div class="row my-3">
             <div class="col-lg-1">
                 Nomor

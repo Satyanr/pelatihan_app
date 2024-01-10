@@ -14,11 +14,24 @@ return new class extends Migration
         Schema::create('surat_pemanggilans', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_surat')->nullable();
-            $table->string('program_diklat')->nullable();
-            $table->string('diklat')->nullable();
+            $table->string('lampiran')->nullable();
+            $table->string('hal')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->text('salampembuka')->nullable();
+            $table->string('pembukaan')->nullable();
+            $table->string('penutupan')->nullable();
+            $table->string('checkout')->nullable();
+            $table->text('kehadiranpeserta')->nullable();
+            $table->text('kelengkapan')->nullable();
+            $table->text('pembiayaan')->nullable();
+            $table->text('salampenutup')->nullable();
+            $table->string('tembusan')->nullable();
+            $table->string('nama_kepala')->nullable();
+            $table->string('nip')->nullable();
+            $table->string('checkdanreg')->nullable();
             $table->string('kelas')->nullable();
             $table->text('persyaratan')->nullable();
-            $table->string('tempat')->nullable();
+            $table->string('tempatpelatihan')->nullable();
             $table->string('periode')->nullable();
             $table->timestamps();
         });
