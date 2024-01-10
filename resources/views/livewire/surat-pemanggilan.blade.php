@@ -161,7 +161,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                             dari
                             SMK PK yang ditetapkan pada
                             Tahun 2023 yang berada di wilayah Provinsi Jawa Barat, Lampung, dan Bengkulu.<o:p></o:p>
-                            </span>
+                        </span>
                     </p>
 
                     <p class="MsoListParagraph"
@@ -621,6 +621,11 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">Simpan</button>
+            <button class="btn btn-secondary" type="button">Kembali</button>
         </div>
     </form>
 
