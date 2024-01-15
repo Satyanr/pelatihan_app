@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('diklats', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_diklat')->nullable();
+            $table->string('jumlahsasaran')->nullable();
+            $table->string('periode')->nullable();
+            $table->string('tempat')->nullable();
             $table->timestamps();
         });
     }

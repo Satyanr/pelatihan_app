@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DiklatController;
 use App\Http\Controllers\SuratPemanggilanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +25,19 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::controller(Controller::class)->group(function () {
-    Route::get('/mainmenu', 'mainmenu')->name('mainmenu');
+    Route::get('/main-menu', 'mainmenu')->name('mainmenu');
     Route::get('/pelatihan', 'pelatihan')->name('pelatihan');
     Route::get('/suratpemanggilanmenu', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
+});
+
+Route::controller(DiklatController::class)->group(function (){
+    Route::prefix('diklat')->group(function () {
+        Route::get('/', 'index')->name('diklat');
+        Route::post('/store', 'store')->name('diklat.store');
+        // Route::get('/edit/{id}', 'DiklatController@edit')->name('diklat');
+        // Route::post('/update/{id}', 'DiklatController@update')->name('diklat');
+        Route::get('/delete/{id}', 'delete')->name('diklat.delete');
+    });
 });
 
 Route::controller(SuratPemanggilanController::class)->group(function () {
@@ -35,6 +46,6 @@ Route::controller(SuratPemanggilanController::class)->group(function () {
         Route::post('/store', 'store')->name('suratpemanggilan.store');
         // Route::get('/edit/{id}', 'SuratPemanggilanController@edit')->name('suratpemanggilan.edit');
         // Route::post('/update/{id}', 'SuratPemanggilanController@update')->name('suratpemanggilan.update');
-        Route::get('/delete/{id}', 'SuratPemanggilanController@delete')->name('suratpemanggilan.delete');
+        Route::get('/delete/{id}', 'delete')->name('suratpemanggilan.delete');
     });
 });

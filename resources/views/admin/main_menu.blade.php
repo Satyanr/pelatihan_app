@@ -2,8 +2,13 @@
 
 
 @section('content')
-    <div class="container text-center my-3">
-        <div class="row row-cols-3">
+    <div class="container my-3">
+        <div class="row border-bottom">
+            <div class="col my-2">
+                <a href="{{ route('diklat') }}" class="btn btn-success"> Tambahkan</a>
+            </div>
+        </div>
+        <div class="row row-cols-3 text-center">
             <div class="col my-3">
                 <div class="card" style="width: 18rem;">
                     <a href="{{ route('pelatihan') }}" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">

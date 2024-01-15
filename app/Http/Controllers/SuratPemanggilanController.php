@@ -38,4 +38,12 @@ class SuratPemanggilanController extends Controller
 
         return redirect()->back();
     }
+
+    public function delete($id)
+    {
+        $surat = SuratPemanggilan::findOrFail($id);
+        $surat->delete();
+
+        return redirect()->back();
+    }
 }
