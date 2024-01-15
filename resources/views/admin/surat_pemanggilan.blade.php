@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-lg-6 d-flex justify-content-end">
                     <div class="col-lg-3">
-                        <input type="text" class="form-control" value="4 Juli 2023" name='tanggal'>
+                        <input type="text" class="form-control" value="{{ old('date', \Carbon\Carbon::now()->format('d M Y')) }}" name='tanggal'>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
             </div>
             <div class="row my-3 pt-5">
                 <div class="col">
-                    <div id="summernote2" name='salampembuka'>
+                    <textarea id="summernote2" name='salampembuka'>
                         <p>
                         </p>
                         <p class="MsoNormal" style="text-indent: -0.95pt; line-height: 150%;">
@@ -90,7 +90,7 @@
                             menjadi
                             peserta kegiatan dimaksud, dengan penjelasan sebagai berikut:
                         </p>
-                    </div>
+                    </textarea>
                 </div>
             </div>
             <div class="row">
@@ -112,7 +112,7 @@
                         <div class="col-md-auto">:</div>
                         <div class="col">
                             <textarea class="form-control" aria-label="With textarea" name='tempatpelatihan'>BBMPV BMTI
-        Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
+Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                         </div>
                     </div>
                     <div class="row my-2">
@@ -157,7 +157,7 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <div id="summernote3" name='persyaratan'>
+                    <textarea id="summernote3" name='persyaratan'>
 
                         <p class="MsoListParagraph"
                             style="margin: 2.05pt 38.25pt 0.0001pt 22px; text-align: justify; text-indent: -18pt; line-height: 115%;">
@@ -232,7 +232,7 @@
                             </span>
                         </p>
 
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
@@ -243,7 +243,7 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <div id="summernote4" name='kehadiranpeserta'>
+                    <textarea id="summernote4" name='kehadiranpeserta'>
                         <p class="MsoListParagraph"
                             style="text-align: left; margin: 2.05pt 38.25pt 0.0001pt 25px; text-indent: -18pt; line-height: 115%;">
                             <!--[if !supportLists]--><span
@@ -281,7 +281,7 @@
                         11.0pt;line-height:115%">Bersedia
                                 mengikuti aturan yang diterapkan.<o:p></o:p></span>
                         </p>
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
@@ -292,7 +292,7 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <div id="summernote5" name='kelengkapan'>
+                    <textarea id="summernote5" name='kelengkapan'>
                         <p class="MsoListParagraph"
                             style="margin-top:2.05pt;line-height:115%;mso-list: l0 level2 lfo1;tab-stops:92.05pt">
                             <!--[if !supportLists]-->
@@ -394,7 +394,7 @@
                                 style="text-align: justify; text-indent: -18pt; background-color: var(--bs-body-bg); font-size: 12pt; font-weight: var(--bs-body-font-weight); line-height: 115%;">Membawa
                                 baju batik untuk pembukaan/penutupan, baju
                                 olahraga, dan sepatu olahraga.</span></p>
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
@@ -405,7 +405,7 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <div id="summernote6" name='pembiayaan'>
+                    <textarea id="summernote6" name='pembiayaan'>
                         <p class="MsoListParagraph" style="margin: 2.05pt 0cm 0.0001pt 19px; line-height: 115%;">
                             <!--[if !supportLists]--><span
                                 style="font-size:12.0pt; line-height:115%;letter-spacing:-.05pt">a.<span
@@ -541,13 +541,13 @@
                                 pelayanan yang ditetapkan<span style="letter-spacing:.05pt"> </span>BBPPMPV<span
                                     style="letter-spacing:-.05pt"> </span>BMTI.<o:p></o:p></span>
                         </p>
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
             <div class="row my-3">
                 <div class="col">
-                    <div id="summernote7" name='salampenutup'>
+                    <textarea id="summernote7" name='salampenutup'>
                         <p class="MsoBodyText"
                             style="margin-top: 10.25pt; margin-right: 38.25pt; margin-bottom: 0.0001pt; text-align: justify; text-indent: -0.6pt; line-height: 115%;">
                             Informasi terkait penyelenggaraan diklat dapat
@@ -592,7 +592,7 @@
                             <o:p></o:p>
                         </p>
 
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
@@ -607,7 +607,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col-6">
-                            <input type="text" class="form-control" value="Supriyono, M.Si." wire:model='tembusan'>
+                            <input type="text" class="form-control" value="Supriyono, M.Si." name='tembusan'>
                         </div>
                     </div>
                 </div>
@@ -626,7 +626,7 @@
                     <div class="row">
                         <div class="col-auto">NIP</div>
                         <div class="col-6">
-                            <input type="text" class="form-control" value="196308051985031005" wire:model='nip'>
+                            <input type="text" class="form-control" value="196308051985031005" name='nip'>
                         </div>
                     </div>
                 </div>
