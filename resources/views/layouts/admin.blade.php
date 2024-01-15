@@ -24,7 +24,7 @@
     @stack('css')
 </head>
 
-<body>
+<body style="background-color: #EEF5FF;">
 
     <x-admin.nav-head />
 

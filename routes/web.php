@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SuratPemanggilanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,14 @@ Route::controller(Controller::class)->group(function () {
     Route::get('/mainmenu', 'mainmenu')->name('mainmenu');
     Route::get('/pelatihan', 'pelatihan')->name('pelatihan');
     Route::get('/suratpemanggilanmenu', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
-    Route::get('/suratpemanggilan', 'suratpemanggilan')->name('suratpemanggilan');
+});
+
+Route::controller(SuratPemanggilanController::class)->group(function () {
+    Route::prefix('suratpemanggilan')->group(function () {
+        Route::get('/', 'index')->name('suratpemanggilan');
+        Route::post('/store', 'store')->name('suratpemanggilan.store');
+        // Route::get('/edit/{id}', 'SuratPemanggilanController@edit')->name('suratpemanggilan.edit');
+        // Route::post('/update/{id}', 'SuratPemanggilanController@update')->name('suratpemanggilan.update');
+        Route::get('/delete/{id}', 'SuratPemanggilanController@delete')->name('suratpemanggilan.delete');
+    });
 });
