@@ -39,7 +39,13 @@
                 <i class="fa-solid fa-envelope"></i> <br>
                 <span>Usulan</span>
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col">
+                <i class="fa-solid fa-people-group"></i> <br>
+                <span>Import Peserta</span>
+            </div>
+            <div class="col">
+                <i class="fa-solid fa-book-open"></i> <br>
+                <span>Lengkapi Buku Panduan</span>
+            </div>
         </div>
     @endsection

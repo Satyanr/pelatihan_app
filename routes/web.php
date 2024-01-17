@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DiklatController;
+use App\Http\Controllers\MSWordController;
 use App\Http\Controllers\SuratPemanggilanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,12 @@ Route::controller(DiklatController::class)->group(function (){
         // Route::get('/edit/{id}', 'DiklatController@edit')->name('diklat');
         // Route::post('/update/{id}', 'DiklatController@update')->name('diklat');
         Route::get('/delete/{id}', 'delete')->name('diklat.delete');
+    });
+});
+
+Route::controller(MSWordController::class)->group(function () {
+    Route::prefix('msword')->group(function () {
+        Route::get('/', 'generateDocx')->name('msword');
     });
 });
 
