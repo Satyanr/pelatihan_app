@@ -13,7 +13,7 @@
         <div class="row">
             @foreach ($surats as $surat)
             <div class="col">
-                {{ $surat->diklat->nama_diklat }}
+                {{ $surat->diklat_id }}
             </div>
             @endforeach
         </div>

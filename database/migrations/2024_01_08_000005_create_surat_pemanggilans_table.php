@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('surat_pemanggilans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dikalt_id')->nullable()->constrained('dikalts')->onDelete('cascade');
+            $table->foreignId('diklat_id')->nullable()->constrained('diklats')->onDelete('cascade');
             $table->string('nomor_surat')->nullable();
             $table->string('lampiran')->nullable();
             $table->string('hal')->nullable();

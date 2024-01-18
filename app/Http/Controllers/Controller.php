@@ -26,7 +26,7 @@ class Controller extends BaseController
 
     public function suratpemanggilanmenu($id)
     {
-        $surats = SuratPemanggilan::where('dikalt_id', $id);
+        $surats = SuratPemanggilan::where('diklat_id', $id)->get();
         $diklat = Diklat::find($id);
         return view('admin.surat_pemanggilan_menu', compact('surats','diklat'));
     }

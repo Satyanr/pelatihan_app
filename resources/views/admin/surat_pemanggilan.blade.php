@@ -4,7 +4,7 @@
     <div class="container">
         <form action="{{ route('suratpemanggilan.store') }}" method="post">
             @csrf
-            <input type="text" name="diklat_id" value="{{ $diklat->id }}" hidden readonly>
+            <input type="text" name='diklat_id' value="{{ $diklat->id }}">
             <div class="row my-3">
                 <div class="col-lg-1">
                     Nomor
@@ -637,7 +637,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                 <div class="col">
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <button class="btn btn-primary" type="submit">Simpan</button>
-                        <a class="btn btn-secondary" href="{{ route('suratpemanggilanmenu') }}">Kembali</a>
+                        <a class="btn btn-secondary" href="{{ route('suratpemanggilanmenu', $diklat->id) }}">Kembali</a>
                     </div>
                 </div>
             </div>
