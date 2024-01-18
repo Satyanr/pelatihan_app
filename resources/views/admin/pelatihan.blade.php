@@ -29,7 +29,7 @@
         <div class="row my-3 border-bottom">
             <div class="col">
                 <div class="w-auto">
-                    <a href="{{ route('suratpemanggilanmenu') }}" style="text-decoration: none">
+                    <a href="{{ route('suratpemanggilanmenu', $diklat->id) }}" style="text-decoration: none">
                         <i class="fa-solid fa-envelope"></i> <br>
                         <span>Surat Pemanggilan</span>
                     </a>

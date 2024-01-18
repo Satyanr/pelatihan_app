@@ -4,6 +4,7 @@
     <div class="container">
         <form action="{{ route('suratpemanggilan.store') }}" method="post">
             @csrf
+            <input type="text" name="diklat_id" value="{{ $diklat->id }}" hidden readonly>
             <div class="row my-3">
                 <div class="col-lg-1">
                     Nomor

@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diklat;
 use Illuminate\Http\Request;
 use App\Models\SuratPemanggilan;
 
 class SuratPemanggilanController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        return view('admin.surat_pemanggilan');
+        $diklat = Diklat::find($id);
+        return view('admin.surat_pemanggilan', compact('diklat'));
     }
     public function store(Request $request)
     {
         $surat = new SuratPemanggilan();
+        $surat->diklat_id = $request->diklat_id;
         $surat->nomor_surat = $request->nomor_surat;
         $surat->lampiran = $request->lampiran;
         $surat->hal = $request->hal;

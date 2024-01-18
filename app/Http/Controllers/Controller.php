@@ -21,12 +21,13 @@ class Controller extends BaseController
     public function pelatihan($id)
     {
         $diklat = Diklat::find($id);
-        return view('admin.pelatihan');
+        return view('admin.pelatihan', compact('diklat'));
     }
 
-    public function suratpemanggilanmenu()
+    public function suratpemanggilanmenu($id)
     {
-        $surats = SuratPemanggilan::all();
-        return view('admin.surat_pemanggilan_menu', compact('surats'));
+        $surats = SuratPemanggilan::where('dikalt_id', $id);
+        $diklat = Diklat::find($id);
+        return view('admin.surat_pemanggilan_menu', compact('surats','diklat'));
     }
 }

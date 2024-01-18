@@ -28,7 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::controller(Controller::class)->group(function () {
     Route::get('/main-menu', 'mainmenu')->name('mainmenu');
     Route::get('/pelatihan/{id}', 'pelatihan')->name('pelatihan');
-    Route::get('/suratpemanggilanmenu', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
+    Route::get('/suratpemanggilanmenu/{id}', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
 });
 
 Route::controller(DiklatController::class)->group(function (){
@@ -49,7 +49,7 @@ Route::controller(MSWordController::class)->group(function () {
 
 Route::controller(SuratPemanggilanController::class)->group(function () {
     Route::prefix('suratpemanggilan')->group(function () {
-        Route::get('/', 'index')->name('suratpemanggilan');
+        Route::get('/{id}', 'index')->name('suratpemanggilan');
         Route::post('/store', 'store')->name('suratpemanggilan.store');
         // Route::get('/edit/{id}', 'SuratPemanggilanController@edit')->name('suratpemanggilan.edit');
         // Route::post('/update/{id}', 'SuratPemanggilanController@update')->name('suratpemanggilan.update');
