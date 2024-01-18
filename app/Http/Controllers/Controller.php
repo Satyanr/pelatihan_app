@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diklat;
+use App\Models\SuratPemanggilan;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -13,17 +14,19 @@ class Controller extends BaseController
 
     public function mainmenu()
     {
-        $diklat = Diklat::all();
-        return view('admin.main_menu', compact('diklat'));
+        $diklats = Diklat::all();
+        return view('admin.main_menu', compact('diklats'));
     }
 
-    public function pelatihan()
+    public function pelatihan($id)
     {
+        $diklat = Diklat::find($id);
         return view('admin.pelatihan');
     }
 
     public function suratpemanggilanmenu()
     {
-        return view('admin.surat_pemanggilan_menu');
+        $surats = SuratPemanggilan::all();
+        return view('admin.surat_pemanggilan_menu', compact('surats'));
     }
 }

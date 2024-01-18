@@ -9,4 +9,9 @@ class SuratPemanggilan extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function diklat()
+    {
+        return $this->belongsTo(Diklat::class);
+    }
 }

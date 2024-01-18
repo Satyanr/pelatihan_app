@@ -27,7 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::controller(Controller::class)->group(function () {
     Route::get('/main-menu', 'mainmenu')->name('mainmenu');
-    Route::get('/pelatihan', 'pelatihan')->name('pelatihan');
+    Route::get('/pelatihan/{id}', 'pelatihan')->name('pelatihan');
     Route::get('/suratpemanggilanmenu', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
 });
 
