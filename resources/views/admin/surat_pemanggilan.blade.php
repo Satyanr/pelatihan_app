@@ -642,17 +642,6 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
             </div>
         </form>
 
-        {{-- eror message --}}
-        @if ($errors->any())
-            <div class="alert alert-danger mt-3">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <script>
             $('#hal').summernote({
                 placeholder: 'Hello stand alone ui',
