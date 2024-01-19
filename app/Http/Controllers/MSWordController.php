@@ -18,6 +18,8 @@ class MSWordController extends Controller
 
         $section = $phpWord->addSection();
 
+        $section->addImage(public_path('asset/default/twh.png'));
+
         $description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -29,10 +31,10 @@ class MSWordController extends Controller
 
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
-            $objWriter->save(storage_path('surat_pemanggilan'). DIRECTORY_SEPARATOR .'surat pemanggilan.docx');
+            $objWriter->save(storage_path('surat_pemanggilan'). DIRECTORY_SEPARATOR .'surat pemanggilan'. date('Ymd_His') .'.docx');
         } catch (Exception $e) {
         }
 
-        return response()->download(storage_path('surat_pemanggilan'). DIRECTORY_SEPARATOR .'surat pemanggilan.docx');
+        return response()->download(storage_path('surat_pemanggilan'). DIRECTORY_SEPARATOR .'surat pemanggilan'. date('Ymd_His') .'.docx');
     }
 }
