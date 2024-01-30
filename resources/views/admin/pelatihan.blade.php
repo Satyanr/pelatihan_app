@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container text-center">
-        <div class="row">
+        <div class="row pt-2">
             <div class="col">
                 <div class="card text-bg-dark">
-                    <div style="height: 50vh; overflow: hidden;">
+                    <div style="height: 50vh; overflow: hidden; position: relative;">
                         <img src="https://th.bing.com/th/id/OIP.uw2P3OC6fGdkixzqji_XfAAAAA?pid=ImgDet&w=184&h=138&c=7"
                             class="img-fluid" style="width: 100%; object-fit: cover; height: 100%;" alt="...">
                     </div>

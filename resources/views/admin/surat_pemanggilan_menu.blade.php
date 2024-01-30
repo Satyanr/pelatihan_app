@@ -29,7 +29,7 @@
                                 <div class="col-auto my-2">
                                     <i class="fa-solid fa-calendar-days"></i> {{ $diklat->periode }}
                                 </div> --}}
-                                <a href="{{ route('msword') }}">
+                                <a href="{{ route('msword', $surat->id) }}">
                                     <div class="col-auto my-2">
                                         <i class="fa-solid fa-file-word"></i> Download Word
                                     </div>

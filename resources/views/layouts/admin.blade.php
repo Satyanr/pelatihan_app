@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -20,6 +22,41 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
+    <style>
+        .form-control::placeholder {
+            color: #ffffff9f;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        .navbar-collapse {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+    </style>
     @livewireStyles
     @stack('css')
 </head>
@@ -28,7 +65,9 @@
 
     <x-admin.nav-head />
 
-    @yield('content')
+    <div class="content mt-5 pt-2">
+        @yield('content')
+    </div>
 
     <x-admin.footer />
 

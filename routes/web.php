@@ -19,12 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('mainmenu');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function(){
+    return redirect('mainmenu');
+})->name('home');
+
 Route::controller(Controller::class)->group(function () {
     Route::get('/main-menu', 'mainmenu')->name('mainmenu');
     Route::get('/pelatihan/{id}', 'pelatihan')->name('pelatihan');
@@ -43,7 +46,7 @@ Route::controller(DiklatController::class)->group(function (){
 
 Route::controller(MSWordController::class)->group(function () {
     Route::prefix('msword')->group(function () {
-        Route::get('/', 'generateDocx')->name('msword');
+        Route::get('/{id}', 'generateDocx')->name('msword');
     });
 });
 

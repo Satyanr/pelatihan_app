@@ -16,9 +16,9 @@ class MSWordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function generateDocx()
+    public function generateDocx($id)
     {
-        $surat_pemanggilan = SuratPemanggilan::first();
+        $surat_pemanggilan = SuratPemanggilan::find($id);
         $salampembuka = str_replace('<br>', '<br></br>', str_replace(['&amp;', '&'], htmlspecialchars('&amp;'), $surat_pemanggilan->salampembuka));
         $persyaratan = str_replace('<br>', '<br></br>', str_replace(['&amp;', '&'], htmlspecialchars('&amp;'), $surat_pemanggilan->persyaratan));
         $kehadiranpeserta = str_replace('<br>', '<br></br>', str_replace(['&amp;', '&'], htmlspecialchars('&amp;'), $surat_pemanggilan->kehadiranpeserta));
