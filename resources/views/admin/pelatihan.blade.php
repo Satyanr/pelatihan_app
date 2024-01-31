@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="py-2 rounded-top-5" style="background-color: #2f5296; color:rgb(255, 255, 255)">
-        <div class="container">
+        <div class="container" style="background-image: url(/asset/image/panduan_asset/16.png); background-repeat: no-repeat; background-size: cover;">
             <div class="row my-5 text-center">
                 <div class="col">
                     <h1>PANDUAN</h1>

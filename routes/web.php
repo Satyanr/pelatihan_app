@@ -55,8 +55,8 @@ Route::controller(SuratPemanggilanController::class)->group(function () {
     Route::prefix('suratpemanggilan')->group(function () {
         Route::get('/{id}', 'index')->name('suratpemanggilan');
         Route::post('/store', 'store')->name('suratpemanggilan.store');
-        // Route::get('/edit/{id}', 'SuratPemanggilanController@edit')->name('suratpemanggilan.edit');
-        // Route::post('/update/{id}', 'SuratPemanggilanController@update')->name('suratpemanggilan.update');
+        Route::get('/edit/{id}', 'edit')->name('suratpemanggilan.edit');
+        Route::post('/update/{id}', 'update')->name('suratpemanggilan.update');
         Route::get('/delete/{id}', 'delete')->name('suratpemanggilan.delete');
     });
 });

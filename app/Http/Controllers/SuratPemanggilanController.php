@@ -8,6 +8,7 @@ use App\Models\SuratPemanggilan;
 
 class SuratPemanggilanController extends Controller
 {
+    public $updatemode = false;
     public function index($id)
     {
         $diklat = Diklat::find($id);
@@ -40,6 +41,42 @@ class SuratPemanggilanController extends Controller
         $surat->save();
 
         return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        $surat = SuratPemanggilan::findOrFail($id);
+        $this->updatemode = true;
+        return view('admin.surat_pemanggilan', compact('surat'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $surat = SuratPemanggilan::findOrFail($id);
+        $surat->nomor_surat = $request->nomor_surat;
+        $surat->lampiran = $request->lampiran;
+        $surat->hal = $request->hal;
+        $surat->tanggal = $request->tanggal;
+        $surat->salampembuka = $request->salampembuka;
+        $surat->pembukaan = $request->pembukaan;
+        $surat->penutupan = $request->penutupan;
+        $surat->checkout = $request->checkout;
+        $surat->kehadiranpeserta = $request->kehadiranpeserta;
+        $surat->kelengkapan = $request->kelengkapan;
+        $surat->pembiayaan = $request->pembiayaan;
+        $surat->salampenutup = $request->salampenutup;
+        $surat->tembusan = $request->tembusan;
+        $surat->nama_kepala = $request->nama_kepala;
+        $surat->nip = $request->nip;
+        $surat->checkdanreg = $request->checkdanreg;
+        $surat->kelas = $request->kelas;
+        $surat->persyaratan = $request->persyaratan;
+        $surat->tempatpelatihan = $request->tempatpelatihan;
+        $surat->periode = $request->periode;
+        $surat->save();
+        $this->updatemode = false;
+
+        return redirect(route('suratpemanggilanmenu', $surat->diklat_id));
     }
 
     public function delete($id)
