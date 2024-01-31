@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DiklatController;
 use App\Http\Controllers\MSWordController;
+use App\Http\Controllers\PanitiaPengajarController;
 use App\Http\Controllers\SuratPemanggilanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', function(){
+Route::get('/home', function () {
     return redirect('mainmenu');
 })->name('home');
 
@@ -34,7 +35,7 @@ Route::controller(Controller::class)->group(function () {
     Route::get('/suratpemanggilanmenu/{id}', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
 });
 
-Route::controller(DiklatController::class)->group(function (){
+Route::controller(DiklatController::class)->group(function () {
     Route::prefix('diklat')->group(function () {
         Route::get('/', 'index')->name('diklat');
         Route::post('/store', 'store')->name('diklat.store');
@@ -57,5 +58,15 @@ Route::controller(SuratPemanggilanController::class)->group(function () {
         // Route::get('/edit/{id}', 'SuratPemanggilanController@edit')->name('suratpemanggilan.edit');
         // Route::post('/update/{id}', 'SuratPemanggilanController@update')->name('suratpemanggilan.update');
         Route::get('/delete/{id}', 'delete')->name('suratpemanggilan.delete');
+    });
+});
+
+Route::controller(PanitiaPengajarController::class)->group(function () {
+    Route::prefix('panitiapengajar')->group(function () {
+        Route::get('/{id}', 'index')->name('panitiapengajar');
+        Route::post('/store', 'store')->name('panitiapengajar.store');
+        Route::get('/edit/{id}', 'edit')->name('panitiapengajar.edit');
+        Route::post('/update/{id}', 'update')->name('panitiapengajar.update');
+        Route::get('/delete/{id}', 'delete')->name('panitiapengajar.delete');
     });
 });

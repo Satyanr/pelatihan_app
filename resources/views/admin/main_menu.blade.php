@@ -44,7 +44,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col my-2">
-                                <a href="{{ route('diklat') }}" class="btn btn-success"> Tambahkan</a>
+                                <a href="{{ route('diklat') }}" class="btn btn-primary"> Tambahkan</a>
                             </div>
                         </div>
                     </div>

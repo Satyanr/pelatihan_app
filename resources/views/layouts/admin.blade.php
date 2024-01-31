@@ -23,10 +23,6 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     <style>
-        .form-control::placeholder {
-            color: #ffffff9f;
-        }
-
         html,
         body {
             height: 100vh;
@@ -38,6 +34,15 @@
             flex-direction: column;
         }
 
+        :root::-webkit-scrollbar {
+            display: none;
+        }
+
+        :root {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
         .content {
             flex: 1 0 auto;
         }
@@ -45,6 +50,7 @@
         footer {
             flex-shrink: 0;
             margin-top: auto;
+            background-color: #0168fa;
         }
 
         .navbar-collapse {
@@ -61,7 +67,7 @@
     @stack('css')
 </head>
 
-<body style="background-color: #EEF5FF;">
+<body>
 
     <x-admin.nav-head />
 

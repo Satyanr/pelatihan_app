@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #176B87 ">
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #2F5296 ">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('mainmenu') }}">
             <img src="/asset/image/brand.png" alt="Logo" width="36" height="36">
@@ -12,7 +12,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
             <form role="search" class="w-50">
-                <input class="form-control me-2" style="background-color: #86b7f68f; color: #ffffff;" type="search"
+                <input class="form-control me-2" style="background-color: #ffffff;" type="search"
                     placeholder="Cari Diklat" aria-label="Search">
             </form>
         </div>

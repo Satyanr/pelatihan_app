@@ -19,6 +19,13 @@ class DiklatController extends Controller
             'jumlahsasaran' => 'required',
             'periode' => 'required',
             'tempat' => 'required',
+            'latar_belakang' => 'required',
+            'hasil_diharapkan' => 'required',
+            'sasaran' => 'required',
+            'materi_pokok' => 'required',
+            'evaluasi' => 'required',
+            'sertifikat' => 'required',
+            'layanan_peserta' => 'required',
         ]);
 
         Diklat::create($request->all());
