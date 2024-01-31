@@ -69,11 +69,15 @@
 
 <body>
 
-    <x-admin.nav-head />
-
-    <div class="content mt-5 pt-2">
+    @if (request()->route()->getName() === 'mainmenu')
         @yield('content')
-    </div>
+    @else
+        <x-admin.nav-head />
+
+        <div class="content mt-5 pt-2">
+            @yield('content')
+        </div>
+    @endif
 
     <x-admin.footer />
 

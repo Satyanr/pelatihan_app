@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="shadow-sm my-3 p-3 mb-5 rounded-pill">
+        <div class="shadow-sm my-3 p-3 mb-3 rounded-pill">
             <div class="row text-center">
                 <div class="col">
                     <div class="w-auto">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="py-2" style="background-color: #2f5296; color:rgb(255, 255, 255)">
+    <div class="py-2 rounded-top-5" style="background-color: #2f5296; color:rgb(255, 255, 255)">
         <div class="container">
             <div class="row my-5 text-center">
                 <div class="col">

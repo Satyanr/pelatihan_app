@@ -11,10 +11,17 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-            <form role="search" class="w-50">
-                <input class="form-control me-2" style="background-color: #ffffff;" type="search"
-                    placeholder="Cari Diklat" aria-label="Search">
-            </form>
+            @if (request()->route()->getName() === 'mainmenu')
+                <form role="search" class="w-50">
+                    <input class="form-control me-2" style="background-color: #ffffff;" type="search"
+                        placeholder="Cari Diklat" aria-label="Search" wire:model='searchdiklat' wire:input='resetPage'>
+                </form>
+            @else
+                <a href="{{ route('mainmenu') }}" class="btn btn-outline-light me-2" type="button"
+                    style="margin-left: auto;">
+                    <i class="fas fa-home"></i>
+                </a>
+            @endif
         </div>
     </div>
 </nav>

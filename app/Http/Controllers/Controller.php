@@ -14,8 +14,7 @@ class Controller extends BaseController
 
     public function mainmenu()
     {
-        $diklats = Diklat::all();
-        return view('admin.main_menu', compact('diklats'));
+        return view('admin.main_menu');
     }
 
     public function pelatihan($id)
@@ -28,6 +27,6 @@ class Controller extends BaseController
     {
         $surats = SuratPemanggilan::where('diklat_id', $id)->get();
         $diklat = Diklat::find($id);
-        return view('admin.surat_pemanggilan_menu', compact('surats','diklat'));
+        return view('admin.surat_pemanggilan_menu', compact('surats', 'diklat'));
     }
 }
