@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row pt-2 text-center">
+        <div class="row pt-2">
             <div class="col">
                 <div class="card text-bg-dark">
                     <div style="height: 50vh; overflow: hidden; position: relative;">

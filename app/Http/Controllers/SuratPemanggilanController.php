@@ -8,7 +8,6 @@ use App\Models\SuratPemanggilan;
 
 class SuratPemanggilanController extends Controller
 {
-    public $updatemode = false;
     public function index($id)
     {
         $diklat = Diklat::find($id);
@@ -40,14 +39,13 @@ class SuratPemanggilanController extends Controller
         $surat->periode = $request->periode;
         $surat->save();
 
-        return redirect()->back();
+        return redirect('suratpemanggilanmenu/' . $request->diklat_id);
     }
 
     public function edit($id)
     {
         $surat = SuratPemanggilan::findOrFail($id);
-        $this->updatemode = true;
-        return view('admin.surat_pemanggilan', compact('surat'));
+        return view('admin.surat_pemanggilan_edit', compact('surat'));
     }
 
     public function update(Request $request, $id)
@@ -74,7 +72,6 @@ class SuratPemanggilanController extends Controller
         $surat->tempatpelatihan = $request->tempatpelatihan;
         $surat->periode = $request->periode;
         $surat->save();
-        $this->updatemode = false;
 
         return redirect(route('suratpemanggilanmenu', $surat->diklat_id));
     }
