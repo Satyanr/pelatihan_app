@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->nullable();
             $table->string('nip')->nullable();
-            $table->string('Unit Kerja')->nullable();
-            $table->enum('jenis', ['panitia', 'pengajar'])->default('panitia');
+            $table->string('unit_kerja')->nullable();
             $table->timestamps();
         });
     }

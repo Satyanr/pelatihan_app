@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diklat;
 use Illuminate\Http\Request;
 use App\Models\PanitiaPengajar;
+use App\Models\PanitiaPengajarLink;
 
 class PanitiaPengajarController extends Controller
 {
@@ -27,11 +28,19 @@ class PanitiaPengajarController extends Controller
             'nama' => $request->get('nama'),
             'nip' => $request->get('nip'),
             'unit_kerja' => $request->get('unit_kerja'),
-            'jenis' => $request->get('jenis'),
         ]);
 
         $panitia->save();
-        return redirect('pelatihan')->with('success', 'Panitia Pengajar telah ditambahkan');
+
+        PanitiaPengajarLink::create([
+            'diklat_id' => $request->get('diklat_id'),
+            'panitia_pengajar_id' => $panitia->id,
+            'jenis' => $request->get('jenis'),
+        ]);
+
+        return redirect()
+            ->route('pelatihan', $request->get('diklat_id'))
+            ->with('success', 'Panitia Pengajar telah ditambahkan');
     }
 
     public function edit($id)
@@ -56,7 +65,9 @@ class PanitiaPengajarController extends Controller
         $panitia->jenis = $request->get('jenis');
         $panitia->save();
 
-        return redirect('pelatihan')->with('success', 'Panitia Pengajar telah diupdate');
+        return redirect()
+            ->route('pelatihan')
+            ->with('success', 'Panitia Pengajar telah ditambahkan');
     }
 
     public function delete($id)
@@ -64,6 +75,8 @@ class PanitiaPengajarController extends Controller
         $panitia = PanitiaPengajar::find($id);
         $panitia->delete();
 
-        return redirect('pelatihan')->with('success', 'Panitia Pengajar telah dihapus');
+        return redirect()
+            ->route('pelatihan')
+            ->with('success', 'Panitia Pengajar telah ditambahkan');
     }
 }

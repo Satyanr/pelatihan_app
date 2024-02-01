@@ -15,9 +15,10 @@ class DiklatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'cover' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nama_diklat' => 'required',
-            'jumlahsasaran' => 'required',
-            'periode' => 'required',
+            'jumlahsasaran' => 'required|numeric',
+            'tanggal_mulai' => 'required',
             'tempat' => 'required',
             'latar_belakang' => 'required',
             'hasil_diharapkan' => 'required',
@@ -26,11 +27,49 @@ class DiklatController extends Controller
             'evaluasi' => 'required',
             'sertifikat' => 'required',
             'layanan_peserta' => 'required',
+            'tanggal_selesai' => 'required',
+            'progli' => 'required',
         ]);
+        if ($request->cover) {
+            $imageName = time() . '.' . $request->cover->extension();
+            $request->cover->move(public_path('covers_diklat'), $imageName);
 
-        Diklat::create($request->all());
+            Diklat::create([
+                'image' => $imageName,
+                'nama_diklat' => $request->nama_diklat,
+                'jumlahsasaran' => $request->jumlahsasaran,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_selesai' => $request->tanggal_selesai,
+                'tempat' => $request->tempat,
+                'progli' => $request->progli,
+                'latar_belakang' => $request->latar_belakang,
+                'hasil_diharapkan' => $request->hasil_diharapkan,
+                'sasaran' => $request->sasaran,
+                'materi_pokok' => $request->materi_pokok,
+                'evaluasi' => $request->evaluasi,
+                'sertifikat' => $request->sertifikat,
+                'layanan_peserta' => $request->layanan_peserta,
+            ]);
+        } else {
+            Diklat::create([
+                'nama_diklat' => $request->nama_diklat,
+                'jumlahsasaran' => $request->jumlahsasaran,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_selesai' => $request->tanggal_selesai,
+                'tempat' => $request->tempat,
+                'progli' => $request->progli,
+                'latar_belakang' => $request->latar_belakang,
+                'hasil_diharapkan' => $request->hasil_diharapkan,
+                'sasaran' => $request->sasaran,
+                'materi_pokok' => $request->materi_pokok,
+                'evaluasi' => $request->evaluasi,
+                'sertifikat' => $request->sertifikat,
+                'layanan_peserta' => $request->layanan_peserta,
+            ]);
+        }
 
-        return redirect()->route('diklat')
+        return redirect()
+            ->route('mainmenu')
             ->with('success', 'Diklat created successfully.');
     }
 
@@ -65,7 +104,8 @@ class DiklatController extends Controller
         $diklat = Diklat::findOrFail($id);
         $diklat->delete();
 
-        return redirect()->route('diklat')
+        return redirect()
+            ->route('mainmenu')
             ->with('success', 'Diklat deleted successfully');
     }
 }

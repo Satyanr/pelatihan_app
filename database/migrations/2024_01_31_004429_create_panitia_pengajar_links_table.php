@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('panitia_pengajar_links', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('diklat_id')->constrained('diklats')->onDelete('cascade');
+            $table->foreignId('panitia_pengajar_id')->constrained('panitia_pengajars')->onDelete('cascade');
+            $table->enum('jenis', ['panitia', 'pengajar'])->default('panitia');
+            $table->string('mata_diklat');
+            $table->string('jam_pelajaran');
             $table->timestamps();
         });
     }

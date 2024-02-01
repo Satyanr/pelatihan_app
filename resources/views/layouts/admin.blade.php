@@ -8,6 +8,7 @@
     <title>Laravel</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -67,7 +68,7 @@
     @stack('css')
 </head>
 
-<body>
+<body class="bg-light bg-gradient">
 
     @if (request()->route()->getName() === 'mainmenu')
         @yield('content')

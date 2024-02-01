@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\DiklatController;
-use App\Http\Controllers\MSWordController;
-use App\Http\Controllers\PanitiaPengajarController;
-use App\Http\Controllers\SuratPemanggilanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiklatController;
+use App\Http\Controllers\MSWordController;
+use App\Http\Controllers\LengkapiDataDiklat;
+use App\Http\Controllers\PanitiaPengajarController;
+use App\Http\Controllers\SuratPemanggilanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +21,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('mainmenu');
+    return redirect('main-menu');
 });
 
 Auth::routes();
 
 Route::get('/home', function () {
-    return redirect('mainmenu');
+    return redirect('main-menu');
 })->name('home');
 
 Route::controller(Controller::class)->group(function () {
@@ -68,5 +69,12 @@ Route::controller(PanitiaPengajarController::class)->group(function () {
         Route::get('/edit/{id}', 'edit')->name('panitiapengajar.edit');
         Route::post('/update/{id}', 'update')->name('panitiapengajar.update');
         Route::get('/delete/{id}', 'delete')->name('panitiapengajar.delete');
+    });
+});
+
+Route::controller(LengkapiDataDiklat::class)->group(function () {
+    Route::prefix('lengkapidata')->group(function () {
+        Route::get('/{id}', 'index')->name('lengkapidata');
+        Route::post('/store', 'store')->name('lengkapidata.store');
     });
 });
