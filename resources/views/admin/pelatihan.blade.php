@@ -36,7 +36,7 @@
                                 <i class="fa-solid fa-map-marker-alt"></i> {{ $diklat->tempat }}
                             </div>
                             <div class="col-auto my-2">
-                                <i class="fa-solid fa-clock"></i> {{ $diklat->jam }}
+                                <i class="fa-solid fa-hands-holding-circle"></i> {{ $diklat->progli }}
                             </div>
                             </p>
                         </div>

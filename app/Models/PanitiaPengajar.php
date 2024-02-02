@@ -9,4 +9,9 @@ class PanitiaPengajar extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function panitiaPengajarLink()
+    {
+        return $this->belongsTo(PanitiaPengajarLink::class, 'id', 'panitia_pengajar_id');
+    }
 }

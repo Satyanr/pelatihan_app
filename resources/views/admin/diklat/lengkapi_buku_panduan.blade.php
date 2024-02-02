@@ -56,6 +56,12 @@
                     <textarea class="form-control" id="summernote2" name="ttertib_pelaksanaan" required></textarea>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <div class="text-center"><label class="form-label my-3 fw-bolder">Keterangan</label></div>
+                    <textarea class="form-control" id="summernote3" name="keterangan" required></textarea>
+                </div>
+            </div>
             <div class="row mt-3">
                 <div class="col">
                     <a href="{{ route('pelatihan', $diklat->id) }}" class="btn btn-secondary">Kembali</a>

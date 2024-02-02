@@ -13,7 +13,10 @@ class UsulanPanitiaComponent extends Component
         $showresult = false;
     public function render()
     {
-        return view('livewire.usulan-panitia-component');
+        $calons = PanitiaPengajarLink::where('diklat_id', $this->diklat_id)->get();
+        return view('livewire.usulan-panitia-component', [
+            'calons' => $calons,
+        ]);
     }
 
     public function searchResult()

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('jenis', ['panitia', 'pengajar'])->default('panitia');
             $table->string('mata_diklat');
             $table->string('jam_pelajaran');
+            $table->enum('status', ['Pending', 'Di Setujui', 'Di Tolak'])->default('Pending');
             $table->timestamps();
         });
     }

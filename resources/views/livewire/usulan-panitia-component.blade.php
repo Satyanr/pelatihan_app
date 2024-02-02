@@ -80,10 +80,60 @@
                                     class="btn btn-secondary">Kembali</a>
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-primary">Tambahkan</button>
+                                <button type="submit" class="btn btn-primary">Usulkan</button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+            <div class="row pb-5">
+                <div class="col">
+                    <h1 class="text-center">List Panita/Pengajar</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item text-center">
+                            <h3>Panitia</h3>
+                        </li>
+                        @foreach ($calons as $panitialistbawah)
+                            @if ($panitialistbawah->jenis == 'panitia')
+                                <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
+                                    {{ $panitialistbawah->panitiaPengajar->nama }}
+                                    <span class="badge bg-warning rounded-pill">
+                                        <a href="javascript:void(0)" class="text-white"><i
+                                                class="fa-solid fa-pencil pe-4"></i></a>
+                                        <a href="javascript:void(0)" class="text-white"><i
+                                                class="fa-solid fa-trash"></i></a>
+                                    </span>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item text-center">
+                            <h3>Pengajar</h3>
+                        </li>
+                        @foreach ($calons as $pengajar)
+                            @if ($pengajar->jenis == 'pengajar')
+                                <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
+                                    {{ $pengajar->panitiaPengajar->nama }}
+                                    <span class="badge bg-warning rounded-pill">
+                                        <a href="javascript:void(0)" class="text-white"><i
+                                                class="fa-solid fa-pencil pe-4"></i></a>
+                                        <a href="javascript:void(0)" class="text-white"><i
+                                                class="fa-solid fa-trash"></i></a>
+                                    </span>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
