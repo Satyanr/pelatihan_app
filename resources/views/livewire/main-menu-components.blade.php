@@ -47,6 +47,28 @@
                         @foreach ($diklats as $diklat)
                             <div class="col-auto m-3">
                                 <div class="card h-100" style="width: 18rem;">
+                                    <div class="d-grid d-md-flex p-2 position-absolute">
+                                        <div class="btn-group dropend">
+                                            <a href="javascript:void(0)"
+                                                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover dropdown-toggle text-bg-secondary rounded-5 bg-opacity-75"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <b class="ps-2 py-2 text-primary"><i class="fa-solid fa-info"></i></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{{ route('diklat.edit', $diklat->id) }}"
+                                                        class="dropdown-item"><i class="fa-solid fa-pencil"></i>
+                                                        Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="dropdown-item text-danger"
+                                                        wire:click="delete({{ $diklat->id }})"><i
+                                                            class="fa-solid fa-trash"></i> Hapus</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                     <a href="{{ route('pelatihan', $diklat->id) }}"
                                         class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
                                         @if ($diklat->image)
@@ -78,12 +100,13 @@
                                             </div>
                                             <div class="row mx-2">
                                                 <div class="col my-2">
+                                                    <i class="fa-solid fa-hands-holding-circle"></i>
                                                     {{ $diklat->progli }}
                                                 </div>
                                             </div>
                                             <div class="row mx-2">
                                                 <div class="col my-2">
-                                                    {{ $diklat->tempat }}
+                                                    <i class="fa-solid fa-location-pin"></i> {{ $diklat->tempat }}
                                                 </div>
                                             </div>
                                             </p>

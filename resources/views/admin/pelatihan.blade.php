@@ -28,7 +28,7 @@
                                 <i class="fa-solid fa-users"></i> {{ $diklat->jumlahsasaran }}
                             </div>
                             <div class="col-auto my-2">
-                                <i class="fa-solid fa-calendar-days"></i> {{ $diklat->periode }}
+                                <i class="fa-solid fa-calendar-days"></i> {{ \Carbon\Carbon::parse($diklat->tanggal_mulai)->format('d F Y') }} - {{ \Carbon\Carbon::parse($diklat->tanggal_selesai)->format('d F Y') }}
                             </div>
                         </div>
                         </p>

@@ -23,4 +23,10 @@ class MainMenuComponents extends Component
             'diklats' => Diklat::where('nama_diklat', 'LIKE', $searchdiklat)->orderBy('id', 'DESC')->paginate(6, ['*'], 'Page'),
         ]);
     }
+
+    public function delete($id)
+    {
+        Diklat::find($id)->delete();
+        session()->flash('message', 'Data berhasil dihapus.');
+    }
 }

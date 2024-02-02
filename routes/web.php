@@ -41,9 +41,8 @@ Route::controller(DiklatController::class)->group(function () {
     Route::prefix('diklat')->group(function () {
         Route::get('/', 'index')->name('diklat');
         Route::post('/store', 'store')->name('diklat.store');
-        // Route::get('/edit/{id}', 'DiklatController@edit')->name('diklat');
-        // Route::post('/update/{id}', 'DiklatController@update')->name('diklat');
-        Route::get('/delete/{id}', 'delete')->name('diklat.delete');
+        Route::get('/edit/{id}', 'edit')->name('diklat.edit');
+        Route::post('/update/{id}', 'update')->name('diklat.update');
     });
 });
 
