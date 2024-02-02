@@ -10,4 +10,13 @@ class PanitiaPengajarLink extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function diklat()
+    {
+        return $this->belongsTo(Diklat::class);
+    }
+
+    public function panitiaPengajar()
+    {
+        return $this->belongsTo(PanitiaPengajar::class);
+    }
 }

@@ -28,212 +28,247 @@
                                 <i class="fa-solid fa-users"></i> {{ $diklat->jumlahsasaran }}
                             </div>
                             <div class="col-auto my-2">
-                                <i class="fa-solid fa-calendar-days"></i> {{ \Carbon\Carbon::parse($diklat->tanggal_mulai)->format('d F Y') }} - {{ \Carbon\Carbon::parse($diklat->tanggal_selesai)->format('d F Y') }}
+                                <i class="fa-solid fa-calendar-days"></i>
+                                {{ \Carbon\Carbon::parse($diklat->tanggal_mulai)->format('d F Y') }} -
+                                {{ \Carbon\Carbon::parse($diklat->tanggal_selesai)->format('d F Y') }}
                             </div>
+                            <div class="col-auto my-2">
+                                <i class="fa-solid fa-map-marker-alt"></i> {{ $diklat->tempat }}
+                            </div>
+                            <div class="col-auto my-2">
+                                <i class="fa-solid fa-clock"></i> {{ $diklat->jam }}
+                            </div>
+                            </p>
                         </div>
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="shadow-sm my-3 p-3 mb-3 rounded-pill">
-            <h6>
-                <div class="row text-center">
-                    <div class="col">
-                        <div class="w-auto">
-                            <a href="{{ route('suratpemanggilanmenu', $diklat->id) }}" style="text-decoration: none">
+            <div class="shadow-sm my-3 p-3 mb-3 rounded-pill">
+                <h6>
+                    <div class="row text-center">
+                        <div class="col">
+                            <div class="w-auto">
+                                <a href="{{ route('suratpemanggilanmenu', $diklat->id) }}" style="text-decoration: none">
+                                    <i class="fa-solid fa-envelope"></i> <br>
+                                    <span>Surat Pemanggilan</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('panitiapengajar', $diklat->id) }}" style="text-decoration: none">
                                 <i class="fa-solid fa-envelope"></i> <br>
-                                <span>Surat Pemanggilan</span>
+                                <span>Usulan</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('peserta', $diklat->id) }}" style="text-decoration: none">
+                                <i class="fa-solid fa-people-group"></i> <br>
+                                <span>Import Peserta</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('lengkapidata', $diklat->id) }}" style="text-decoration: none">
+                                <i class="fa-solid fa-book-open"></i> <br>
+                                <span>Lengkapi Buku Panduan</span>
                             </a>
                         </div>
                     </div>
+                </h6>
+            </div>
+        </div>
+        <div class="py-2 rounded-top-5 text-white"
+            style="background-color: #2f5296; background-image: url(/asset/image/panduan_asset/28-01.png); background-size: 100%; background-repeat:repeat-x;">
+            <div class="container">
+                <div class="row my-5 text-center">
                     <div class="col">
-                        <a href="{{ route('panitiapengajar', $diklat->id) }}" style="text-decoration: none">
-                            <i class="fa-solid fa-envelope"></i> <br>
-                            <span>Usulan</span>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ route('peserta', $diklat->id) }}" style="text-decoration: none">
-                            <i class="fa-solid fa-people-group"></i> <br>
-                            <span>Import Peserta</span>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ route('lengkapidata', $diklat->id) }}" style="text-decoration: none">
-                            <i class="fa-solid fa-book-open"></i> <br>
-                            <span>Lengkapi Buku Panduan</span>
-                        </a>
+                        <h1>PANDUAN</h1>
                     </div>
                 </div>
-            </h6>
+
+                <div class="row my-5 justify-content-center">
+                    <div class="col-10">
+                        <h3>DAFTAR ISI :</h3>
+                        <h5>
+                            <div class="row">
+                                <div class="col-7">
+                                    <ol>
+                                        <li>Kata Pengantar</li>
+                                        <li>Latar Belakang</li>
+                                        <li>Tujuan, Hasil yang Diharapkan</li>
+                                        <li>Materi Pokok</li>
+                                        <li>Pengajar Panitia</li>
+                                    </ol>
+                                </div>
+                                <div class="col">
+                                    <ol start="6">
+                                        <li>Evaluasi</li>
+                                        <li>Sertifikat, Layanan, Tata Tertib</li>
+                                        <li>Jadwal</li>
+                                        <li>Keterangan</li>
+                                        <li>Peserta</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </h5>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="py-2 rounded-top-5 text-white"
-        style="background-color: #2f5296; background-image: url(/asset/image/panduan_asset/28-01.png); background-size: 100%; background-repeat:repeat-x;">
-        <div class="container">
-            <div class="row my-5 text-center">
+        <div class="container text-center">
+            <div class="row my-3 text-center">
                 <div class="col">
-                    <h1>PANDUAN</h1>
+                    <h3>KATA PENGANTAR</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    @if ($diklat->kata_pengantar == null)
+                        <div class="alert alert-danger" role="alert">
+                            Kata Pengantar Belum Diisi
+                        </div>
+                    @endif
+                    {!! $diklat->kata_pengantar !!}
                 </div>
             </div>
 
-            <div class="row my-5 justify-content-center">
-                <div class="col-10">
-                    <h3>DAFTAR ISI :</h3>
-                    <h5>
-                        <div class="row">
-                            <div class="col-7">
-                                <ol>
-                                    <li>Kata Pengantar</li>
-                                    <li>Latar Belakang</li>
-                                    <li>Tujuan, Hasil yang Diharapkan</li>
-                                    <li>Materi Pokok</li>
-                                    <li>Pengajar Panitia</li>
-                                </ol>
-                            </div>
-                            <div class="col">
-                                <ol start="6">
-                                    <li>Evaluasi</li>
-                                    <li>Sertifikat, Layanan, Tata Tertib</li>
-                                    <li>Jadwal</li>
-                                    <li>Keterangan</li>
-                                    <li>Peserta</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </h5>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>LATAR BELAKANG</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {!! $diklat->latar_belakang !!}
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container text-center">
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>KATA PENGANTAR</h3>
+        <div class="text-white text-center" style="background-color: #2f5296;">
+            <div class="container text-center py-3">
+                <div class="row my-3 text-center">
+                    <div class="col">
+                        <h3>TUJUAN DAN HASIL YANG DIHARAPKAN</h3>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        {!! $diklat->hasil_diharapkan !!}
+                    </div>
+                </div>
+                <div class="row my-3 text-center">
+                    <div class="col">
+                        <h3>MATERI POKOK</h3>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        {!! $diklat->materi_pokok !!}
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row my-3">
-            <div class="col">
-                @if ($diklat->kata_pengantar == null)
+        <div class="container text-center">
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>PENGAJAR</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    @if ($diklat->panitiaPengajarLinks->count() == 0)
+                        <div class="alert alert-danger" role="alert">
+                            Belum Ada Panitia
+                        </div>
+                    @endif
+                    @foreach ($diklat->panitiaPengajarLinks as $panitia)
+                        {{ $panitia->panitiaPengajar->nama }}
+                    @endforeach
+                </div>
+            </div>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>EVALUASI</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {!! $diklat->evaluasi !!}
+                </div>
+            </div>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>SERTIFIKAT DAN LAYANAN PESERTA</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {!! $diklat->sertifikat !!}
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {!! $diklat->layanan_peserta !!}
+                </div>
+            </div>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>TATA TERTIB PELAKSANAAN</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    @if ($diklat->ttertib_pelaksanaan == null)
+                        <div class="alert alert-danger" role="alert">
+                            Tata Tertib Belum Diisi
+                        </div>
+                    @endif
+                    {!! $diklat->ttertib_pelaksanaan !!}
+                </div>
+            </div>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>JADWAL</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    @if ($diklat->jadwal == null)
+                        <div class="alert alert-danger" role="alert">
+                            Jadwal Belum Diisi
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>KETERANGAN</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    @if ($diklat->keterangan == null)
+                        <div class="alert alert-danger" role="alert">
+                            Keterangan Belum Diisi
+                        </div>
+                    @endif
+                    {{ $diklat->keterangan }}
+                </div>
+            </div>
+            <div class="row my-3 text-center">
+                <div class="col">
+                    <h3>PESERTA</h3>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {{-- @if ($diklat->pesertaPelatihan->count() == 0)
                     <div class="alert alert-danger" role="alert">
-                        Kata Pengantar Belum Diisi
+                        Belum Ada Peserta
                     </div>
                 @endif
-                {!! $diklat->kata_pengantar !!}
-            </div>
-        </div>
-
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>LATAR BELAKANG</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {!! $diklat->latar_belakang !!}
-            </div>
-        </div>
-    </div>
-    <div class="text-white text-center" style="background-color: #2f5296;">
-        <div class="container text-center py-3">
-            <div class="row my-3 text-center">
-                <div class="col">
-                    <h3>TUJUAN DAN HASIL YANG DIHARAPKAN</h3>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col">
-                    {!! $diklat->hasil_diharapkan !!}
-                </div>
-            </div>
-            <div class="row my-3 text-center">
-                <div class="col">
-                    <h3>MATERI POKOK</h3>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col">
-                    {!! $diklat->materi_pokok !!}
+                @foreach ($diklat->pesertaPelatihan as $peserta)
+                    {{ $peserta->nama }}
+                @endforeach --}}
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container text-center">
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>PENGAJAR</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {{-- {!! $diklat->latar_belakang !!} --}}
-            </div>
-        </div>
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>EVALUASI</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {!! $diklat->evaluasi !!}
-            </div>
-        </div>
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>SERTIFIKAT DAN LAYANAN PESERTA</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {!! $diklat->sertifikat !!}
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {!! $diklat->layanan_peserta !!}
-            </div>
-        </div>
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>TATA TERTIB PELAKSANAAN</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {!! $diklat->ttertib_pelaksanaan !!}
-            </div>
-        </div>
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>JADWAL</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {{-- {!! $diklat->latar_belakang !!} --}}
-            </div>
-        </div>
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>KETERANGAN</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {{-- {!! $diklat->latar_belakang !!} --}}
-            </div>
-        </div>
-        <div class="row my-3 text-center">
-            <div class="col">
-                <h3>PESERTA</h3>
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col">
-                {{-- {!! $diklat->latar_belakang !!} --}}
-            </div>
-        </div>
-    </div>
-@endsection
+    @endsection
