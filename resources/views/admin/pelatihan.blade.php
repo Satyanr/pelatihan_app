@@ -54,8 +54,10 @@
                         </a>
                     </div>
                     <div class="col">
-                        <i class="fa-solid fa-people-group"></i> <br>
-                        <span>Import Peserta</span>
+                        <a href="{{ route('peserta', $diklat->id) }}" style="text-decoration: none">
+                            <i class="fa-solid fa-people-group"></i> <br>
+                            <span>Import Peserta</span>
+                        </a>
                     </div>
                     <div class="col">
                         <a href="{{ route('lengkapidata', $diklat->id) }}" style="text-decoration: none">
@@ -121,7 +123,7 @@
                 {!! $diklat->kata_pengantar !!}
             </div>
         </div>
-        
+
         <div class="row my-3 text-center">
             <div class="col">
                 <h3>LATAR BELAKANG</h3>

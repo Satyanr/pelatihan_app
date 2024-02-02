@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('peserta_pelatihans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('diklat_id')->constrained('diklats');
             $table->timestamps();
         });
     }
