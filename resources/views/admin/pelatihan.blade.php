@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="py-2 rounded-top-5 text-white"
-        style="background-color: #2f5296; background-image: url(/asset/image/panduan_asset/1.png); background-size: 100%; background-repeat:repeat-x;">
+        style="background-color: #2f5296; background-image: url(/asset/image/panduan_asset/28-01.png); background-size: 100%; background-repeat:repeat-x;">
         <div class="container">
             <div class="row my-5 text-center">
                 <div class="col">
