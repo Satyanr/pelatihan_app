@@ -7,6 +7,7 @@ use App\Http\Controllers\DiklatController;
 use App\Http\Controllers\MSWordController;
 use App\Http\Controllers\LengkapiDataDiklat;
 use App\Http\Controllers\PanitiaPengajarController;
+use App\Http\Controllers\PesertaPelatihanController;
 use App\Http\Controllers\SuratPemanggilanController;
 
 /*
@@ -76,5 +77,16 @@ Route::controller(LengkapiDataDiklat::class)->group(function () {
     Route::prefix('lengkapidata')->group(function () {
         Route::get('/{id}', 'index')->name('lengkapidata');
         Route::post('/store', 'store')->name('lengkapidata.store');
+    });
+});
+
+Route::controller(PesertaPelatihanController::class)->group(function () {
+    Route::prefix('peserta')->group(function () {
+        Route::get('/{id}', 'index')->name('peserta');
+        Route::post('/import', 'import')->name('users.import');
+        Route::post('/store', 'store')->name('peserta.store');
+        Route::get('/edit/{id}', 'edit')->name('peserta.edit');
+        Route::post('/update/{id}', 'update')->name('peserta.update');
+        Route::get('/delete/{id}', 'delete')->name('peserta.delete');
     });
 });
