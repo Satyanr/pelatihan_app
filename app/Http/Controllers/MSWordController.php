@@ -70,7 +70,7 @@ class MSWordController extends Controller
         $html .= '<tr><td style="width: 150px;">Lampiran</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $lampiran) . '</td></tr>';
         $html .= '<tr><td style="width: 150px;">Hal</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $hal) . '</td></tr>';
         $html .= '</table>';
-        $html .= str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $salampembuka);
+        $html .= "<section style='margin-left: 200px;'>". str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $salampembuka)."</section>";
         $html .= '<ol><li style="text-indent: -0.95pt; line-height: 150%;">Pelaksanaan Kegiatan</li>';
         $html .= '<table>';
         $html .= '<tr><td>Periode</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $periode) . '</td></tr>';

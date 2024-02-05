@@ -54,15 +54,8 @@
                         <p><br></p>
                         <p><br></p>
                         <p>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi melalui Balai Besar Pengembangan
-                            Penjaminan
-                            Mutu Pendidikan Vokasi Bidang Mesin dan Teknik Industri (BBPPMPV BMTI), akan menyelenggarakan
-                            Program
-                            Upskilling dan Reskilling Guru Kejuruan Berstandar Industri bagi Guru SMK Pusat Keunggulan (SMK
-                            PK)
-                            Tahun 2023.
-                            Sehubungan dengan hal tersebut, mohon bantuan Saudara untuk menugaskan nama-nama terlampir
-                            menjadi
-                            peserta kegiatan dimaksud, dengan penjelasan sebagai berikut:
+                            Penjaminan Mutu Pendidikan Vokasi Bidang Mesin dan Teknik Industri (BBPPMPV BMTI), akan menyelenggarakan Program Upskilling dan Reskilling Guru Kejuruan Berstandar Industri bagi Guru SMK Pusat Keunggulan (SMK PK) Tahun 2023. Sehubungan dengan hal tersebut, mohon bantuan Saudara untuk menugaskan nama-nama terlampir
+                            menjadi peserta kegiatan dimaksud, dengan penjelasan sebagai berikut:
                         </p>
                     </textarea>
                 </div>
@@ -250,8 +243,8 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
                 height: 300,
+                ['style', ['style']],
                 toolbar: [
-                    ['style', ['style']],
                     ['font', ['bold', 'underline', 'clear']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
