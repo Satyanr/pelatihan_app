@@ -47,9 +47,7 @@ class MSWordController extends Controller
         $leftMarginCm = 1.09;
         $rightMarginCm = 1.06;
 
-        $section = $phpWord->addSection(['marginLeft' => $leftMarginCm * 567, 'marginRight' => $rightMarginCm * 567,
-        'marginTop' => $topMarginCm * 567, $bottomMarginCm * 567]);
-
+        $section = $phpWord->addSection(['marginLeft' => $leftMarginCm * 567, 'marginRight' => $rightMarginCm * 567, 'marginTop' => $topMarginCm * 567, $bottomMarginCm * 567]);
         $section->addImage(public_path('asset/default/twh.png'), [
             'positioning' => 'relative',
             'wrappingStyle' => 'infront',
@@ -66,28 +64,28 @@ class MSWordController extends Controller
 
         $html = '<html><body style="font-family: Times New Roman; font-size: 12pt;">';
         $html .= '<table>';
-        $html .= '<tr><td style="width: 150px;">Nomor</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $nomor_surat) . '</td><td style="width:250px;margin: right 25px;">' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $tanggal) . '</td></tr>';
+        $html .= '<tr><td style="width: 150px;">Nomor</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $nomor_surat) . '</td><td style="width:250px;">' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $tanggal) . '</td></tr>';
         $html .= '<tr><td style="width: 150px;">Lampiran</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $lampiran) . '</td></tr>';
         $html .= '<tr><td style="width: 150px;">Hal</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $hal) . '</td></tr>';
         $html .= '</table>';
-        $html .= "<section style='margin-left: 200px;'>". str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $salampembuka)."</section>";
+        $html .= str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $salampembuka);
         $html .= '<ol><li style="text-indent: -0.95pt; line-height: 150%;">Pelaksanaan Kegiatan</li>';
-        $html .= '<table>';
+        $html .= '<table><tr><td style="width: 55px;"></td><td><table>';
         $html .= '<tr><td>Periode</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $periode) . '</td></tr>';
         $html .= '<tr><td>Tempat Pelatihan</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $tempatpelatihan) . '</td></tr>';
         $html .= '<tr><td><i>Check in</i> dan Registrasi</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $checkdanreg) . '</td></tr>';
         $html .= '<tr><td>Pembukaan</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $pembukaan) . '</td></tr>';
         $html .= '<tr><td>Penutupan</td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $penutupan) . '</td></tr>';
         $html .= '<tr><td><i>Check out</i></td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $checkout) . '</td></tr>';
-        $html .= '</table>';
+        $html .= '</table></td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Persyaratan Peserta</li>';
-        $html .= str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $persyaratan);
+        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $persyaratan) . '</td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Kehadiran Peserta</li>';
-        $html .= str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kehadiranpeserta);
+        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kehadiranpeserta) . '</td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Kelengkapan yang harus dibawa Peserta dan </li>';
-        $html .= str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kelengkapan);
+        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kelengkapan) . '</td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Pembiayaan</li></ol>';
-        $html .= str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $pembiayaan);
+        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $pembiayaan) . '</td></tr></table>';
         $html .= '<br></br>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $salampenutup);
         $html .= '<br></br> <table>';
         $html .= '<tr style="height: 150px;"><td style="width: 250px;"></td><td style="width: 250px;"></td><td style="width: 250px;">Plt. Kepala.</td></tr>';
