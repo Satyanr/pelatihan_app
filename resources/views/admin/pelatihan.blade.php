@@ -62,8 +62,8 @@
                         </div>
                         <div class="col">
                             <a href="{{ route('peserta', $diklat->id) }}" style="text-decoration: none">
-                                <i class="fa-solid fa-people-group"></i> <br>
-                                <span>Import Peserta</span>
+                                <i class="fa-solid fa-clipboard-list"></i><br>
+                                <span>Jadwal</span>
                             </a>
                         </div>
                         <div class="col">

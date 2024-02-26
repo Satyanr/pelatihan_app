@@ -79,13 +79,13 @@ class MSWordController extends Controller
         $html .= '<tr><td><i>Check out</i></td><td>:</td><td> ' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $checkout) . '</td></tr>';
         $html .= '</table></td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Persyaratan Peserta</li>';
-        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $persyaratan) . '</td></tr></table>';
+        $html .= '<table><tr><td style="width: 80px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $persyaratan) . '</td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Kehadiran Peserta</li>';
-        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kehadiranpeserta) . '</td></tr></table>';
+        $html .= '<table><tr><td style="width: 70px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kehadiranpeserta) . '</td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Kelengkapan yang harus dibawa Peserta dan </li>';
-        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kelengkapan) . '</td></tr></table>';
+        $html .= '<table><tr><td style="width: 150px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $kelengkapan) . '</td></tr></table>';
         $html .= '<li style="text-indent: -0.95pt; line-height: 150%;">Pembiayaan</li></ol>';
-        $html .= '<table><tr><td style="width: 100px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $pembiayaan) . '</td></tr></table>';
+        $html .= '<table><tr><td style="width: 150px;"></td><td>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $pembiayaan) . '</td></tr></table>';
         $html .= '<br></br>' . str_replace(['<o:p>', '</o:p>', '<!--[if !supportLists]-->', '<!--[endif]-->'], '', $salampenutup);
         $html .= '<br></br> <table>';
         $html .= '<tr style="height: 150px;"><td style="width: 250px;"></td><td style="width: 250px;"></td><td style="width: 250px;">Plt. Kepala.</td></tr>';

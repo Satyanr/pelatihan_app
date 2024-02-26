@@ -22,12 +22,12 @@ class PesertaPelatihanController extends Controller
         $diklat->peserta()->create($request->all());
         return redirect()->route('peserta', $request->id);
     }
-    public function import()
-    {
-        Excel::import(new PesertaImport,request()->file('file'));
+    // public function import()
+    // {
+    //     Excel::import(new PesertaImport,request()->file('file'));
 
-        return back();
-    }
+    //     return back();
+    // }
 
 
     public function edit($id)

@@ -52,11 +52,7 @@
                         </p>
                         <div style="text-indent: -1.26667px;">Yth.</div><ol><li style="text-indent: -0.95pt; line-height: 150%;">Kepala Dinas Pendidikan Provinsi Jawa Barat</li><li style="text-indent: -0.95pt; line-height: 150%;"><span style="text-indent: -1.26667px;">Kepala Dinas Pendidikan Provinsi Bengkulu</span><br></li><li style="text-indent: -0.95pt; line-height: 150%;"><span style="text-indent: -1.26667px;">Kepala Dinas Pendidikan Provinsi Lampung</span><br></li></ol>
                         <p><br></p>
-                        <p><br></p>
-                        <p>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi melalui Balai Besar Pengembangan
-                            Penjaminan Mutu Pendidikan Vokasi Bidang Mesin dan Teknik Industri (BBPPMPV BMTI), akan menyelenggarakan Program Upskilling dan Reskilling Guru Kejuruan Berstandar Industri bagi Guru SMK Pusat Keunggulan (SMK PK) Tahun 2023. Sehubungan dengan hal tersebut, mohon bantuan Saudara untuk menugaskan nama-nama terlampir
-                            menjadi peserta kegiatan dimaksud, dengan penjelasan sebagai berikut:
-                        </p>
+                        <p>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi melalui Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Mesin dan Teknik Industri (BBPPMPV BMTI), akan menyelenggarakan Program Upskilling dan Reskilling Guru Kejuruan Berstandar Industri bagi Guru SMK Pusat Keunggulan (SMK PK) Tahun 2023. Sehubungan dengan hal tersebut, mohon bantuan Saudara untuk menugaskan nama-nama terlampir menjadi peserta kegiatan dimaksud, dengan penjelasan sebagai berikut:</p>
                     </textarea>
                 </div>
             </div>
