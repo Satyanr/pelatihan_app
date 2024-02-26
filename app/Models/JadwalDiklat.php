@@ -10,4 +10,13 @@ class JadwalDiklat extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function diklat()
+    {
+        return $this->belongsTo(Diklat::class);
+    }
+
+    public function jadwal_kegiatan_diklat()
+    {
+        return $this->hasMany(JadwalKegiatanDiklat::class);
+    }
 }

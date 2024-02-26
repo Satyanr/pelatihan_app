@@ -61,7 +61,7 @@
                             </a>
                         </div>
                         <div class="col">
-                            <a href="{{ route('peserta', $diklat->id) }}" style="text-decoration: none">
+                            <a href="{{ route('jadwal', $diklat->id) }}" style="text-decoration: none">
                                 <i class="fa-solid fa-clipboard-list"></i><br>
                                 <span>Jadwal</span>
                             </a>

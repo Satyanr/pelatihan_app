@@ -15,14 +15,15 @@ return new class extends Migration
             $table->id();
             $table->foreignId('jadwal_diklat_id')->constrained('jadwal_diklats')->onDelete('cascade');
             $table->date('tanggal')->nullable();
-            $table->string('waktu')->nullable();
+            $table->string('waktu_awal')->nullable();
+            $table->string('waktu_akhir')->nullable();
             $table->string('materi_topik_sajian')->nullable();
             $table->string('narasumber_penyaji')->nullable();
             $table->string('penanggung_jawab')->nullable();
-            $table->enum('checkin', ['yes', 'no'])->nullable();
-            $table->enum('checkout', ['yes', 'no'])->nullable();
-            $table->enum('break', ['yes', 'no'])->nullable();
-            $table->enum('isoma', ['yes', 'no'])->nullable();
+            $table->boolean('checkin')->default(false);
+            $table->boolean('checkout')->default(false);
+            $table->boolean('isoma')->default(false);
+            $table->boolean('break')->default(false);
             $table->timestamps();
         });
     }

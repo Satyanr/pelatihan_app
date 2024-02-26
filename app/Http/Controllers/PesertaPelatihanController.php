@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Diklat;
 use Illuminate\Http\Request;
-use App\Imports\PesertaImport;
 use App\Models\PesertaPelatihan;
 use Maatwebsite\Excel\Facades\Excel;
 

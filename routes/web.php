@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiklatController;
+use App\Http\Controllers\JadwalKegiatanDiklatController;
 use App\Http\Controllers\MSWordController;
 use App\Http\Controllers\LengkapiDataDiklat;
 use App\Http\Controllers\PanitiaPengajarController;
@@ -79,13 +80,23 @@ Route::controller(LengkapiDataDiklat::class)->group(function () {
     });
 });
 
-Route::controller(PesertaPelatihanController::class)->group(function () {
-    Route::prefix('peserta')->group(function () {
-        Route::get('/{id}', 'index')->name('peserta');
-        Route::post('/import', 'import')->name('users.import');
-        Route::post('/store', 'store')->name('peserta.store');
-        Route::get('/edit/{id}', 'edit')->name('peserta.edit');
-        Route::post('/update/{id}', 'update')->name('peserta.update');
-        Route::get('/delete/{id}', 'delete')->name('peserta.delete');
+// Route::controller(PesertaPelatihanController::class)->group(function () {
+//     Route::prefix('peserta')->group(function () {
+//         Route::get('/{id}', 'index')->name('peserta');
+//         Route::post('/import', 'import')->name('users.import');
+//         Route::post('/store', 'store')->name('peserta.store');
+//         Route::get('/edit/{id}', 'edit')->name('peserta.edit');
+//         Route::post('/update/{id}', 'update')->name('peserta.update');
+//         Route::get('/delete/{id}', 'delete')->name('peserta.delete');
+//     });
+// });
+
+Route::controller(JadwalKegiatanDiklatController::class)->group(function () {
+    Route::prefix('jadwal')->group(function () {
+        Route::get('/{id}', 'index')->name('jadwal');
+        Route::post('/store', 'store')->name('jadwal.store');
+        Route::get('/edit/{id}', 'edit')->name('jadwal.edit');
+        Route::post('/update/{id}', 'update')->name('jadwal.update');
+        Route::get('/delete/{id}', 'delete')->name('jadwal.delete');
     });
 });

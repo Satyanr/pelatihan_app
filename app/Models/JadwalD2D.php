@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class JadwalD2D extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 }
