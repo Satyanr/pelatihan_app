@@ -19,4 +19,9 @@ class Diklat extends Model
     {
         return $this->hasMany(PesertaPelatihan::class);
     }
+
+    public function jadwalDiklat()
+    {
+        return $this->hasMany(JadwalDiklat::class);
+    }
 }

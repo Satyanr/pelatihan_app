@@ -76,7 +76,7 @@ Route::controller(PanitiaPengajarController::class)->group(function () {
 Route::controller(LengkapiDataDiklat::class)->group(function () {
     Route::prefix('lengkapidata')->group(function () {
         Route::get('/{id}', 'index')->name('lengkapidata');
-        Route::post('/store', 'store')->name('lengkapidata.store');
+        Route::post('/store/{id}', 'store')->name('lengkapidata.store');
     });
 });
 

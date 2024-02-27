@@ -76,8 +76,7 @@
                 </h6>
             </div>
         </div>
-        <div class="py-2 rounded-top-5 text-white"
-            style="background-color: #2f5296; background-image: url(/asset/image/panduan_asset/28-01.png); background-size: 100%; background-repeat:repeat-x;">
+        <div class="py-2 rounded-top-5 text-white" style="background-color: #2f5296;">
             <div class="container">
                 <div class="row my-5 text-center">
                     <div class="col">
@@ -166,13 +165,13 @@
                 </div>
             </div>
         </div>
-        <div class="container text-center">
+        <div class="container">
             <div class="row my-3 text-center">
                 <div class="col">
                     <h3>PENGAJAR</h3>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     @if ($diklat->panitiaPengajarLinks->count() == 0)
                         <div class="alert alert-danger" role="alert">
@@ -189,7 +188,7 @@
                     <h3>EVALUASI</h3>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     {!! $diklat->evaluasi !!}
                 </div>
@@ -199,12 +198,12 @@
                     <h3>SERTIFIKAT DAN LAYANAN PESERTA</h3>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     {!! $diklat->sertifikat !!}
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     {!! $diklat->layanan_peserta !!}
                 </div>
@@ -214,7 +213,7 @@
                     <h3>TATA TERTIB PELAKSANAAN</h3>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     @if ($diklat->ttertib_pelaksanaan == null)
                         <div class="alert alert-danger" role="alert">
@@ -231,10 +230,83 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    @if ($diklat->jadwal == null)
-                        <div class="alert alert-danger" role="alert">
+                    @if ($diklat->jadwalDiklat == null)
+                        <div class="alert alert-danger text-center" role="alert">
                             Jadwal Belum Diisi
                         </div>
+                    @else
+                        @foreach ($diklat->jadwalDiklat as $jadwal)
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5>{{ $loop->iteration }}.{{ $jadwal->nama_jadwal }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col shadow p-3 mb-5 bg-body-tertiary rounded">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">No</th>
+                                                        <th scope="col">waktu</th>
+                                                        <th scope="col">Materi Topik Sajian</th>
+                                                        <th scope="col">Narasumber/Penyaji</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @php
+                                                        $prevDate = null;
+                                                    @endphp
+
+                                                    @foreach ($jadwal->jadwal_kegiatan_diklat->sortBy(function ($item) {
+                                                        return [$item->tanggal, $item->waktu_awal];
+                                                    }) as $kegiatan)
+                                                        @if ($kegiatan->tanggal !== $prevDate)
+                                                            <tr>
+                                                                <td colspan="4">
+                                                                    {{ $kegiatan->tanggal }}
+                                                                </td>
+                                                            </tr>
+                                                            @php
+                                                                $prevDate = $kegiatan->tanggal;
+                                                            @endphp
+                                                        @endif
+                                                        @if ($kegiatan->checkin | $kegiatan->break | $kegiatan->checkout | $kegiatan->isoma)
+                                                            <tr class="table-primary">
+                                                            @else
+                                                            <tr>
+                                                        @endif
+                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                        <td>{{ $kegiatan->waktu_awal }} - {{ $kegiatan->waktu_akhir }}
+                                                        </td>
+                                                        @if ($kegiatan->checkin)
+                                                            <td colspan="3" class=" ps-5 h4 text-secondary">
+                                                                Checkin</td>
+                                                        @elseif($kegiatan->break)
+                                                            <td colspan="3" class=" ps-5 h4 text-secondary">
+                                                                Break</td>
+                                                        @elseif($kegiatan->checkout)
+                                                            <td colspan="3" class=" ps-5 h4 text-secondary">
+                                                                Checkout</td>
+                                                        @elseif($kegiatan->isoma)
+                                                            <td colspan="3" class=" ps-5 h4 text-secondary">
+                                                                Isoma</td>
+                                                        @else
+                                                            <td>{{ $kegiatan->materi_topik_sajian }}</td>
+                                                            <td>{{ $kegiatan->narasumber_penyaji }}</td>
+                                                            <td>{{ $kegiatan->penganggung_jawab }}</td>
+                                                        @endif
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     @endif
                 </div>
             </div>
@@ -243,14 +315,14 @@
                     <h3>KETERANGAN</h3>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     @if ($diklat->keterangan == null)
                         <div class="alert alert-danger" role="alert">
                             Keterangan Belum Diisi
                         </div>
                     @endif
-                    {{ $diklat->keterangan }}
+                    {!! $diklat->keterangan !!}
                 </div>
             </div>
             <div class="row my-3 text-center">
@@ -258,7 +330,7 @@
                     <h3>PESERTA</h3>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-3 text-center">
                 <div class="col">
                     {{-- @if ($diklat->pesertaPelatihan->count() == 0)
                     <div class="alert alert-danger" role="alert">
@@ -271,4 +343,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

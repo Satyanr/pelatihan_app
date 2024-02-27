@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container my-3">
-        <form action="{{ route('diklat.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('lengkapidata.store',  $diklat->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             @if ($errors->any())
@@ -16,34 +16,6 @@
                     </ul>
                 </div>
             @endif
-            <div class="row">
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Nama Diklat</label>
-                        <input type="text" class="form-control" name="nama_diklat" required>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah Sasaran</label>
-                        <input type="text" class="form-control" placeholder="400" name="jumlahsasaran" required>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Periode</label>
-                        <input type="text" class="form-control" placeholder=" 2 Juli - 10 Desember 2024" name="periode" required>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Tempat</label>
-                        <input type="text" class="form-control" name="tempat" required>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col">
                     <div class="text-center"><label class="form-label my-3 fw-bolder">Kata Pengantar</label></div>
@@ -67,7 +39,7 @@
                     <a href="{{ route('pelatihan', $diklat->id) }}" class="btn btn-secondary">Kembali</a>
                 </div>
                 <div class="col d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Tambahkan</button>
+                    <button type="submit" class="btn btn-primary">Lengkapi</button>
                 </div>
             </div>
         </form>

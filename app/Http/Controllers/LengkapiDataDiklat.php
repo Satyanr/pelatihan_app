@@ -23,6 +23,6 @@ class LengkapiDataDiklat extends Controller
         ]);
         $diklat->save();
         return redirect()
-            ->route('pelatihan');
+            ->route('pelatihan',  $diklat->id);
     }
 }
