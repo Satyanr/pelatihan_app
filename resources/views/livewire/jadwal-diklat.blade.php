@@ -193,7 +193,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($jadwal->jadwal_kegiatan_diklat as $item)
+                            @foreach ($jadwal->jadwal_kegiatan_diklat->sortBy(function ($item) {
+        return [$item->tanggal, $item->waktu_awal];
+    }) as $item)
                                 @if ($item->checkin | $item->break | $item->checkout | $item->isoma)
                                     <tr class="table-primary">
                                     @else

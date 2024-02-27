@@ -98,11 +98,19 @@ class JadwalDiklat extends Component
 
     public function kegiatanstore()
     {
-        $this->validate([
-            'tanggal' => 'required',
-            'waktu_awal' => 'required',
-            'waktu_akhir' => 'required',
-        ]);
+        $this->validate(
+            [
+                'tanggal' => 'required',
+                'waktu_awal' => 'required',
+                'waktu_akhir' => 'required|after_or_equal:waktu_awal',
+            ],
+            [
+                'tanggal.required' => 'Tanggal harus diisi',
+                'waktu_awal.required' => 'Waktu awal harus diisi',
+                'waktu_akhir.required' => 'Waktu akhir harus diisi',
+                'waktu_akhir.after_or_equal' => 'Waktu akhir harus lebih dari waktu awal',
+            ],
+        );
 
         if ($this->checkin) {
             JadwalKegiatanDiklat::create([
