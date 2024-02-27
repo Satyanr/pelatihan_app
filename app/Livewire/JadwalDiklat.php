@@ -12,7 +12,8 @@ class JadwalDiklat extends Component
     public $jadwal_diklat;
     public $namadisable = false,
         $materitype = false,
-        $judulhason = false;
+        $judulhason = false,
+        $updateMode = false;
     public function render()
     {
         $jdwldklt = ModelsJadwalDiklat::where('diklat_id', $this->diklat->id)->get();
@@ -35,6 +36,7 @@ class JadwalDiklat extends Component
         $this->checkout = false;
         $this->break = false;
         $this->isoma = false;
+        $this->materitype = false;
     }
     public function store()
     {
@@ -50,6 +52,48 @@ class JadwalDiklat extends Component
         $this->judulhason = true;
         $this->namadisable = true;
         // return redirect(route('jadwal-diklat', $id));
+    }
+
+    public function resetForm()
+    {
+        $this->nama_jadwal = '';
+        $this->tanggal = '';
+        $this->waktu_awal = '';
+        $this->waktu_akhir = '';
+        $this->materi_topik_sajian = '';
+        $this->narasumber_penyaji = '';
+        $this->penanggung_jawab = '';
+        $this->resetradio();
+    }
+
+    public function edit($id)
+    {
+        $this->jadwal_diklat = ModelsJadwalDiklat::find($id);
+        $this->nama_jadwal = $this->jadwal_diklat->nama_jadwal;
+        $this->updateMode = true;
+    }
+
+    public function cancel()
+    {
+        $this->resetForm();
+        $this->judulhason = false;
+        $this->namadisable = false;
+        $this->updateMode = false;
+    }
+
+    public function update()
+    {
+        $this->validate([
+            'nama_jadwal' => 'required',
+        ]);
+
+        $this->jadwal_diklat->update([
+            'nama_jadwal' => $this->nama_jadwal,
+        ]);
+
+        $this->judulhason = true;
+        $this->namadisable = true;
+        $this->updateMode = false;
     }
 
     public function kegiatanstore()
@@ -115,6 +159,8 @@ class JadwalDiklat extends Component
                 'narasumber_penyaji' => $this->narasumber_penyaji,
                 'penanggung_jawab' => $this->penanggung_jawab,
             ]);
+
+            $this->resetradio();
         }
         // return redirect(route('jadwal-diklat', $id));
     }
@@ -122,5 +168,10 @@ class JadwalDiklat extends Component
     public function kegiatandestroy($id)
     {
         JadwalKegiatanDiklat::find($id)->delete();
+    }
+
+    public function jadwaldel($id)
+    {
+        ModelsJadwalDiklat::find($id)->delete();
     }
 }

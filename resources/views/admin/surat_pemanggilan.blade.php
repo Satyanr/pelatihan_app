@@ -239,7 +239,6 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
                 height: 300,
-                ['style', ['style']],
                 toolbar: [
                     ['font', ['bold', 'underline', 'clear']],
                     ['color', ['color']],
@@ -249,6 +248,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
+
             $('#summernote3').summernote({
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
@@ -263,6 +263,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
+
             $('#summernote4').summernote({
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
@@ -277,6 +278,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
+
             $('#summernote5').summernote({
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
@@ -291,6 +293,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
+
             $('#summernote6').summernote({
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
@@ -305,6 +308,7 @@ Jalan Pasantren, Km. 2, Cibabat, Cimahi Utara 40513</textarea>
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
+
             $('#summernote7').summernote({
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,
