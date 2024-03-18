@@ -39,7 +39,7 @@
                     </div>
                 @else
                     <a href="{{ route('login') }}"
-                        class="text-white link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                        class="text-white link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover ps-5">
                         <div class="row">
                             <div class="col-1">
                                 <i class="fa-solid fa-user"></i>
@@ -146,15 +146,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="shadow-sm my-3 p-3 mb-3 rounded-pill text-center ">
-                        <div class="row">
-                            <div class="col my-2">
-                                <a href="{{ route('diklat') }}" class="btn btn-primary"> Tambahkan</a>
+                @if (auth()->user())
+                    <div class="col-3">
+                        <div class="shadow-sm my-3 p-3 mb-3 rounded-pill text-center ">
+                            <div class="row">
+                                <div class="col my-2">
+                                    <a href="{{ route('diklat') }}" class="btn btn-primary"> Tambahkan</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -43,38 +43,51 @@
                     </div>
                 </div>
             </div>
-            <div class="shadow-sm my-3 p-3 mb-3 rounded-pill">
-                <h6>
-                    <div class="row text-center">
-                        <div class="col">
-                            <div class="w-auto">
-                                <a href="{{ route('suratpemanggilanmenu', $diklat->id) }}" style="text-decoration: none">
+            @if (auth()->user())
+                <div class="shadow-sm my-3 p-3 mb-3 rounded-pill">
+                    <h6>
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="w-auto">
+                                    <a href="{{ route('suratpemanggilanmenu', $diklat->id) }}"
+                                        style="text-decoration: none">
+                                        <i class="fa-solid fa-envelope"></i> <br>
+                                        <span>Surat Pemanggilan</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <a href="{{ route('panitiapengajar', $diklat->id) }}" style="text-decoration: none">
                                     <i class="fa-solid fa-envelope"></i> <br>
-                                    <span>Surat Pemanggilan</span>
+                                    <span>Usulan</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="{{ route('jadwal', $diklat->id) }}" style="text-decoration: none">
+                                    <i class="fa-solid fa-clipboard-list"></i><br>
+                                    <span>Jadwal</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="{{ route('lengkapidata', $diklat->id) }}" style="text-decoration: none">
+                                    <i class="fa-solid fa-book-open"></i> <br>
+                                    <span>Lengkapi Buku Panduan</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="col">
-                            <a href="{{ route('panitiapengajar', $diklat->id) }}" style="text-decoration: none">
-                                <i class="fa-solid fa-envelope"></i> <br>
-                                <span>Usulan</span>
-                            </a>
+                    </h6>
+                </div>
+                @else
+                <div class="shadow-sm my-3 p-3 mb-3 rounded-pill">
+                    <h6>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h3>Silahkan Baca Buku Panduan Di Bawah</h3>
+                            </div>
                         </div>
-                        <div class="col">
-                            <a href="{{ route('jadwal', $diklat->id) }}" style="text-decoration: none">
-                                <i class="fa-solid fa-clipboard-list"></i><br>
-                                <span>Jadwal</span>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="{{ route('lengkapidata', $diklat->id) }}" style="text-decoration: none">
-                                <i class="fa-solid fa-book-open"></i> <br>
-                                <span>Lengkapi Buku Panduan</span>
-                            </a>
-                        </div>
-                    </div>
-                </h6>
-            </div>
+                    </h6>
+                </div>
+            @endif
         </div>
         <div class="py-2 rounded-top-5 text-white" style="background-color: #2f5296;">
             <div class="container">
@@ -261,8 +274,8 @@
                                                     @endphp
 
                                                     @foreach ($jadwal->jadwal_kegiatan_diklat->sortBy(function ($item) {
-                                                        return [$item->tanggal, $item->waktu_awal];
-                                                    }) as $kegiatan)
+            return [$item->tanggal, $item->waktu_awal];
+        }) as $kegiatan)
                                                         @if ($kegiatan->tanggal !== $prevDate)
                                                             <tr>
                                                                 <td colspan="4">
