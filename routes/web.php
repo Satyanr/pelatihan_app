@@ -26,7 +26,12 @@ Route::get('/', function () {
     return redirect('main-menu');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+    'confirm' => false,
+]);
 
 Route::get('/home', function () {
     return redirect('main-menu');
