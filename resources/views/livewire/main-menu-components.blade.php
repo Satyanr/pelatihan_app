@@ -16,18 +16,41 @@
                     <input class="form-control me-2" style="background-color: #ffffff;" type="search"
                         placeholder="Cari Diklat" aria-label="Search" wire:model='searchdiklat' wire:input='resetPage'>
                 </form>
+                @if (auth()->user())
+                    <div class="dropdown px-5">
+                        <a class="btn btn-outline-light border-0 dropdown-toggle" href="javascript:void:(0)"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('pengguna') }}"><i
+                                        class="fa-solid fa-user-group"></i> Pengguna</a></li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-key"></i> Log Out</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="text-white link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                        <div class="row">
+                            <div class="col-1">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="col">
+                                <h5>Login</h5>
+                            </div>
+                        </div>
+                    </a>
+                @endif
             </div>
-            <a href="{{ route('login') }}"
-                class="text-white link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
-                <div class="row">
-                    <div class="col-1">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="col">
-                        <h5>Login</h5>
-                    </div>
-                </div>
-            </a>
         </div>
     </nav>
     <div class="content mt-5 pt-2">
@@ -88,7 +111,8 @@
                                         @endif
                                         <div class="card-body">
                                             <div class="text-center pb-2">
-                                                <i class="fa-solid fa-calendar-days"></i> {{ $diklat->tanggal_mulai }} -
+                                                <i class="fa-solid fa-calendar-days"></i> {{ $diklat->tanggal_mulai }}
+                                                -
                                                 {{ $diklat->tanggal_selesai }}
                                             </div>
                                             <h5 class="card-title text-center">{{ $diklat->nama_diklat }}</h5>
