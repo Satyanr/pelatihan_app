@@ -41,7 +41,7 @@ Route::controller(Controller::class)->group(function () {
     Route::get('/main-menu', 'mainmenu')->name('mainmenu');
     Route::get('/pelatihan/{id}', 'pelatihan')->name('pelatihan');
     Route::get('/suratpemanggilanmenu/{id}', 'suratpemanggilanmenu')->name('suratpemanggilanmenu');
-    Route::get('/pengguna')->name('pengguna');
+    Route::get('/pengguna', 'pengguna')->name('pengguna');
 });
 
 Route::controller(DiklatController::class)->group(function () {
