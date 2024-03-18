@@ -17,7 +17,7 @@
                         placeholder="Cari Diklat" aria-label="Search" wire:model='searchdiklat' wire:input='resetPage'>
                 </form>
             </div>
-            <a href="javascript:void(0)"
+            <a href="{{ route('login') }}"
                 class="text-white link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
                 <div class="row">
                     <div class="col-1">
