@@ -9,6 +9,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class PesertaPelatihanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index($id)
     {
         $diklat = Diklat::find($id);
