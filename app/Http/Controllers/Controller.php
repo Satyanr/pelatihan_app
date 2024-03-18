@@ -29,4 +29,9 @@ class Controller extends BaseController
         $diklat = Diklat::find($id);
         return view('admin.surat_pemanggilan_menu', compact('surats', 'diklat'));
     }
+
+    public function pengguna()
+    {
+        return view('admin.pengguna');
+    }
 }
